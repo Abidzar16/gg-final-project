@@ -1,0 +1,7 @@
+source "https://rubygems.org"
+gem "mysql2"
+gem "rspec"
+gem "dotenv"
+gem "database_cleaner-sequel"
+gem "nanoid"
+gem "json"
