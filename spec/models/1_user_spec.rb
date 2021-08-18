@@ -2,6 +2,7 @@ require './app/models/user'
 require 'mysql2'
 require 'dotenv/load'
 require 'nanoid'
+require "./db_connection"
 
 RSpec.describe User do
   describe '#valid?' do
@@ -62,10 +63,29 @@ RSpec.describe User do
 
     it 'returns the saved User object' do
       actual_result = subject
-      expect(actual_result.id).to eq (expected_result.id)
-      expect(actual_result.name).to eq (expected_result.name)
-      expect(actual_result.email).to eq (expected_result.email)
-      expect(actual_result.bio).to eq (expected_result.bio)
+      expect(actual_result[:id]).to eq (expected_result.id)
+      expect(actual_result[:name]).to eq (expected_result.name)
+      expect(actual_result[:email]).to eq (expected_result.email)
+      expect(actual_result[:bio]).to eq (expected_result.bio)
     end
-end
+  end
+
+  describe '#fetch_all' do
+    before do
+      # create 2 dummy user
+      @user_id_dummy = Nanoid.generate(size:11)
+      dummy = User.new({:id => @user_id_dummy, :name => 'dummy_name', :email => 'dummy@email.com', :bio => 'dummy_bio'})
+      dummy.save
+      @user_id_dummy2 = Nanoid.generate(size:11)
+      dummy2 = User.new({:id => @user_id_dummy2, :name => 'dummy_name', :email => 'dummy@email.com', :bio => 'dummy_bio'})
+      dummy2.save
+    end
+
+    subject { User.fetch_all }
+
+    it 'users table is exactly 2 row' do
+      actual_result = subject
+      expect(actual_result.count).to eq 2
+    end
+  end
 end

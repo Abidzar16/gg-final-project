@@ -19,17 +19,6 @@ class User
     def self.fetch_all
       sql = "SELECT * FROM users;"
       rawData = database_client.query(sql)
-      # puts rawData.inspect
-      # response = []
-      # rawData.each do |data|S
-      #   response << {
-      #     :id => data[:id],
-      #     :data => data[:name],
-      #     :email => data[:email],
-      #     :bio => data[:bio], 
-      #     :created_at => data[:created_at]
-      #   }
-      # end
       return rawData.entries
     end
     

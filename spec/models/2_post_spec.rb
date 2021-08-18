@@ -80,10 +80,10 @@ RSpec.describe Post do
     it 'returns the saved User object' do
       actual_result = subject
 
-      expect(actual_result.id).to eq (expected_result.id)
-      expect(actual_result.content).to eq (expected_result.content)
-      expect(actual_result.user_id).to eq (expected_result.user_id)
-      expect(actual_result.attachment).to eq (expected_result.attachment)
+      expect(actual_result[:id]).to eq (expected_result.id)
+      expect(actual_result[:content]).to eq (expected_result.content)
+      expect(actual_result[:user_id]).to eq (expected_result.user_id)
+      expect(actual_result[:attachment]).to eq (expected_result.attachment)
     end
 end
 end
