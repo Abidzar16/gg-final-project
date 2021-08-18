@@ -1,5 +1,6 @@
 require 'dotenv/load'
 require 'mysql2'
+require "./db_connection"
 
 class Comment
     attr_accessor :id, :content, :user_id, :post_id
@@ -23,28 +24,31 @@ class Comment
 
     def save
         insert_to_database(id: @id, content: @content, user_id: @user_id, post_id: @post_id)
-        self
-      end
-    
-      private
-    
-        def insert_to_database(params)
-          columns = params.keys.map { |key| key.to_s }.join(', ')
-          values = params.keys.map { |key| "\'#{params[key].to_s}\'" }.join(', ')
-          sql = "INSERT INTO comments (#{columns}) VALUES (#{values});"
-          database_client.query(sql)
-          database_client.last_id
-        end
-    
-        def database_client
-          @database_client ||= begin
-            ::Mysql2::Client.new(
-              host: ENV['DATABASE_HOST'],
-              username: ENV['DATABASE_USERNAME'],
-              password: ENV['DATABASE_PASSWORD'],
-              database: ENV['DATABASE_NAME_TEST'],
-              port: ENV['DATABASE_PORT']
-            )
-          end
+        return {id: @id, content: @content, user_id: @user_id, post_id: @post_id}
     end
-  end
+    
+    
+    def insert_to_database(params)
+      columns = params.keys.map { |key| key.to_s }.join(', ')
+      values = params.keys.map { |key| "\'#{params[key].to_s}\'" }.join(', ')
+      sql = "INSERT INTO comments (#{columns}) VALUES (#{values});"
+      database_client.query(sql)
+      database_client.last_id
+    end
+
+    def self.fetch_by_hashtag(params)
+      hashtag = params[:hashtag]
+      sql = "SELECT * FROM comments 
+            WHERE created_at >= now() - INTERVAL 1 DAY;"
+      rawData = database_client.query(sql)
+      filter = rawData.entries.select{ |i| i["content"][/##{hashtag}/] }
+      return filter
+    end
+
+    def self.fetch_all
+      sql = "SELECT * FROM comments;"
+      rawData = database_client.query(sql)
+      return rawData.entries
+    end
+
+end

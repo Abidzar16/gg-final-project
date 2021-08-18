@@ -4,11 +4,11 @@ require "json"
 
 class UsersController < Sinatra::Base
     get "/users" do
-      rawData = User.fetch_all
+      response = User.fetch_all
 
       content_type :json
       status 200
-      body rawData.to_json
+      body response.to_json
     end
   
     post "/users" do
@@ -18,7 +18,7 @@ class UsersController < Sinatra::Base
       response = user.save
 
       content_type :json
-      status 200
+      status 201
       body response.to_json
     end
   

@@ -47,16 +47,14 @@ RSpec.describe Comment do
   end
 
   # create user and post first
-  
-
   describe '#save' do
-    
+
     before do
       # create dummy user
       @user_id_dummy = Nanoid.generate(size:11)
       dummy_user = User.new({:id => @user_id_dummy, :name => 'dummy_name', :email => 'dummy@email.com', :bio => 'dummy_bio'})
       dummy_user.save
-      
+  
       @post_id_dummy = Nanoid.generate(size:11)
       dummy_post = Post.new({:id => @post_id_dummy, :content => 'dummy_content', :attachment => 'dummy@attachment.com', :user_id => @user_id_dummy})
       dummy_post.save
@@ -68,7 +66,7 @@ RSpec.describe Comment do
     
     comment_id = Nanoid.generate(size:11)
     
-    let(:id) { post_id }
+    let(:id) { comment_id }
     let(:content) { 'content' }
     let(:user_id) { @user_id_dummy } # from before section
     let(:post_id) { @post_id_dummy }
@@ -93,13 +91,69 @@ RSpec.describe Comment do
       mysql_client.close
     end
 
-    it 'returns the saved User object' do
+    it 'returns the saved Comment object' do
       actual_result = subject
 
-      expect(actual_result.id).to eq (expected_result.id)
-      expect(actual_result.content).to eq (expected_result.content)
-      expect(actual_result.user_id).to eq (expected_result.user_id)
-      expect(actual_result.post_id).to eq (expected_result.post_id)
+      expect(actual_result[:id]).to eq (expected_result.id)
+      expect(actual_result[:content]).to eq (expected_result.content)
+      expect(actual_result[:user_id]).to eq (expected_result.user_id)
+      expect(actual_result[:post_id]).to eq (expected_result.post_id)
     end
-end
+  end
+
+  describe '#fetch_by_hashtag' do
+    before do
+      @user_id_dummy = Nanoid.generate(size:11)
+      dummy_user = User.new({:id => @user_id_dummy, :name => 'dummy_name', :email => 'dummy@email.com', :bio => 'dummy_bio'})
+      dummy_user.save
+
+      @post_id_dummy = Nanoid.generate(size:11)
+      dummy_post = Post.new({:id => @post_id_dummy, :content => 'dummy_content #test', :attachment => 'dummyattachment.com', :user_id => @user_id_dummy})
+      dummy_post.save
+
+      @comment_id_dummy = Nanoid.generate(size:11)
+      dummy_comment = Comment.new({:id => @comment_id_dummy, :content => 'dummy comment #test', :post_id => @post_id_dummy, :user_id => @user_id_dummy})
+      dummy_comment.save
+
+      @comment_id_dummy2 = Nanoid.generate(size:11)
+      dummy_comment = Comment.new({:id => @comment_id_dummy2, :content => 'dummy comment 2', :post_id => @post_id_dummy, :user_id => @user_id_dummy})
+      dummy_comment.save
+    end
+
+    subject { Comment.fetch_by_hashtag(:hashtag => 'test') }
+
+    it 'return 1 comment contain hashtag' do
+      actual_result = subject
+
+      expect(actual_result.length).to eq 1
+    end
+  end
+
+  describe '#fetch_all' do
+    before do
+      @user_id_dummy = Nanoid.generate(size:11)
+      dummy_user = User.new({:id => @user_id_dummy, :name => 'dummy_name', :email => 'dummy@email.com', :bio => 'dummy_bio'})
+      dummy_user.save
+
+      @post_id_dummy = Nanoid.generate(size:11)
+      dummy_post = Post.new({:id => @post_id_dummy, :content => 'dummy_content #test', :attachment => 'dummyattachment.com', :user_id => @user_id_dummy})
+      dummy_post.save
+
+      @comment_id_dummy = Nanoid.generate(size:11)
+      dummy_comment = Comment.new({:id => @comment_id_dummy, :content => 'dummy comment #test', :post_id => @post_id_dummy, :user_id => @user_id_dummy})
+      dummy_comment.save
+
+      @comment_id_dummy2 = Nanoid.generate(size:11)
+      dummy_comment = Comment.new({:id => @comment_id_dummy2, :content => 'dummy comment 2', :post_id => @post_id_dummy, :user_id => @user_id_dummy})
+      dummy_comment.save
+    end
+    
+    subject { Comment.fetch_all }
+    
+    it 'return 2 comment' do
+      actual_result = subject
+
+      expect(actual_result.length).to eq 2
+    end
+  end
 end

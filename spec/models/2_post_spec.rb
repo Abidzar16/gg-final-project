@@ -85,5 +85,53 @@ RSpec.describe Post do
       expect(actual_result[:user_id]).to eq (expected_result.user_id)
       expect(actual_result[:attachment]).to eq (expected_result.attachment)
     end
-end
+  end
+
+  describe '#fetch_by_hashtag' do
+    before do
+      @user_id_dummy = Nanoid.generate(size:11)
+      dummy_user = User.new({:id => @user_id_dummy, :name => 'dummy_name', :email => 'dummy@email.com', :bio => 'dummy_bio'})
+      dummy_user.save
+      
+      @post_id_dummy = Nanoid.generate(size:11)
+      dummy_post = Post.new({:id => @post_id_dummy, :content => 'dummy_content #test', :attachment => 'dummyattachment.com', :user_id => @user_id_dummy})
+      dummy_post.save
+
+      @post_id_dummy2 = Nanoid.generate(size:11)
+      dummy_post = Post.new({:id => @post_id_dummy2, :content => 'dummy_content test', :attachment => 'dummyattachment.com', :user_id => @user_id_dummy})
+      dummy_post.save
+    end
+    
+    subject { Post.fetch_by_hashtag(:hashtag => 'test') }
+    
+    it 'return 1 post contain hashtag' do
+      actual_result = subject
+
+      expect(actual_result.length).to eq 1
+    end
+  end
+
+  describe '#fetch_all' do
+    before do
+      @user_id_dummy = Nanoid.generate(size:11)
+      dummy_user = User.new({:id => @user_id_dummy, :name => 'dummy_name', :email => 'dummy@email.com', :bio => 'dummy_bio'})
+      dummy_user.save
+      
+      @post_id_dummy = Nanoid.generate(size:11)
+      dummy_post = Post.new({:id => @post_id_dummy, :content => 'dummy_content #test', :attachment => 'dummyattachment.com', :user_id => @user_id_dummy})
+      dummy_post.save
+
+      @post_id_dummy2 = Nanoid.generate(size:11)
+      dummy_post = Post.new({:id => @post_id_dummy2, :content => 'dummy_content test', :attachment => 'dummyattachment.com', :user_id => @user_id_dummy})
+      dummy_post.save
+    end
+    
+    subject { Post.fetch_all }
+    
+    it 'return 2 post' do
+      actual_result = subject
+
+      expect(actual_result.length).to eq 2
+    end
+  end
 end
