@@ -106,7 +106,7 @@ RSpec.configure do |config|
 
   db_host = ENV['DATABASE_HOST']
   db_port = ENV['DATABASE_PORT']
-  db_name = ENV['DATABASE_NAME_TEST']
+  db_name = ENV['DATABASE_NAME']
   db_username = ENV['DATABASE_USERNAME']
   db_password = ENV['DATABASE_PASSWORD']
   uri = "mysql2://#{db_username}:#{db_password}@#{db_host}:#{db_port}/#{db_name}"

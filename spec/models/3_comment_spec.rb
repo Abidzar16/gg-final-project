@@ -82,7 +82,7 @@ RSpec.describe Comment do
         host: ENV['DATABASE_HOST'],
         username: ENV['DATABASE_USERNAME'],
         password: ENV['DATABASE_PASSWORD'],
-        database: ENV['DATABASE_NAME_TEST'],
+        database: ENV['DATABASE_NAME'],
         port: ENV['DATABASE_PORT']
       )
     end

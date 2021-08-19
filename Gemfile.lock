@@ -7,8 +7,10 @@ GEM
       sequel
     diff-lcs (1.4.4)
     dotenv (2.7.6)
+    json (2.5.1)
     mysql2 (0.5.3)
     nanoid (2.0.0)
+    rack (2.2.3)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
       rspec-expectations (~> 3.10.0)
@@ -25,14 +27,16 @@ GEM
     sequel (5.47.0)
 
 PLATFORMS
-  ruby
+  x64-mingw32
 
 DEPENDENCIES
   database_cleaner-sequel
   dotenv
+  json
   mysql2
   nanoid
+  rack
   rspec
 
 BUNDLED WITH
-   1.16.1
+   2.2.26
