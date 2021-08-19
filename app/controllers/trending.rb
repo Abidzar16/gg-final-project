@@ -13,11 +13,11 @@ class TrendingsController < Sinatra::Base
 
     hashtags_list = Array.new
     filtered_posts.each do |posts|
-        hashtags_list << posts["content"].scan(/#(\w+)/)
+        hashtags_list << posts["content"].scan(/#(\w+)/).uniq
     end
 
     filtered_comments.each do |comments|
-        hashtags_list << comments["content"].scan(/#(\w+)/)
+        hashtags_list << comments["content"].scan(/#(\w+)/).uniq
     end
     
     hashtags_count = Hash.new
