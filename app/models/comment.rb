@@ -38,8 +38,7 @@ class Comment
 
     def self.fetch_by_hashtag(params)
       hashtag = params[:hashtag]
-      sql = "SELECT * FROM comments 
-            WHERE created_at >= now() - INTERVAL 1 DAY;"
+      sql = "SELECT * FROM comments;"
       rawData = database_client.query(sql)
       filter = rawData.entries.select{ |i| i["content"][/##{hashtag}/] }
       return filter

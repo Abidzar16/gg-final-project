@@ -13,15 +13,6 @@ class Post
       @user_id = attributes.fetch(:user_id)
       @errors = []
     end
-
-    def self.fetch_by_hashtag(attributes)
-      search = '#' + attributes[:hashtag].to_s
-      sql = "SELECT * FROM posts
-              WHERE created_at <= now() - INTERVAL 1 DAY;
-                    AND content LIKE '%#{search}%';"
-      rawData = database_client.query(sql)
-      return rawData.entries
-    end
     
     def valid?
       @errors = []
@@ -47,8 +38,7 @@ class Post
 
     def self.fetch_by_hashtag(params)
       hashtag = params[:hashtag]
-      sql = "SELECT * FROM posts 
-            WHERE created_at >= now() - INTERVAL 1 DAY;"
+      sql = "SELECT * FROM posts;"
       rawData = database_client.query(sql)
       filter = rawData.entries.select{ |i| i["content"][/##{hashtag}/] }
       return filter
