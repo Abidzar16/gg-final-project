@@ -19,7 +19,7 @@ class TrendingsController < Sinatra::Base
     filtered_comments.each do |comments|
         hashtags_list << comments["content"].scan(/#(\w+)/).uniq
     end
-    
+
     hashtags_count = Hash.new
     hashtags_list.flatten.each do |hashtag|
         if (hashtags_count.has_key?(hashtag)) == false

@@ -11,7 +11,7 @@ This repository containing server-side only social media application that can be
 ## Prerequisites to test and run the application locally
 
 1. Import the schema into local mysql database (filename: schema.sql)
-2. create .env file based on .env.example, replace the value based on mysql server you used (username, password, host, port, database name)
+2. create .env file based on .env.example, replace the value based on mysql server you used on the step one (username, password, host, port, database name)
 3. run ```bundle install``` on the command line to install dependency needed to run project
 
 ---
