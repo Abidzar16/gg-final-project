@@ -1,23 +1,23 @@
-require "sinatra/base"
-require "./app/models/post"
-require "./app/models/comment"
-require "json"
+require 'sinatra/base'
+require './app/models/post'
+require './app/models/comment'
+require 'json'
 
 class TrendingsController < Sinatra::Base
-  get "/trendings" do
+  get '/trendings' do
     posts = Post.fetch_all
     comments = Comment.fetch_all
 
-    filtered_posts = posts.select{ |i| i["created_at"] >= Time.now - (3600 * 24)  }
-    filtered_comments = comments.select{ |i| i["created_at"] >= Time.now - (3600 * 24)  }
+    filtered_posts = posts.select{ |i| i['created_at'] >= Time.now - (3600 * 24)}
+    filtered_comments = comments.select{ |i| i['created_at'] >= Time.now - (3600 * 24)}
 
     hashtags_list = Array.new
     filtered_posts.each do |posts|
-        hashtags_list << posts["content"].scan(/#(\w+)/).uniq
+        hashtags_list << posts['content'].scan(/#(\w+)/).uniq
     end
 
     filtered_comments.each do |comments|
-        hashtags_list << comments["content"].scan(/#(\w+)/).uniq
+        hashtags_list << comments['content'].scan(/#(\w+)/).uniq
     end
 
     hashtags_count = Hash.new

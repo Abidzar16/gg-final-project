@@ -1,9 +1,9 @@
-require "sinatra/base"
-require "./app/models/user"
-require "json"
+require 'sinatra/base'
+require './app/models/user'
+require 'json'
 
 class UsersController < Sinatra::Base
-  get "/users" do
+  get '/users' do
     response = User.fetch_all
 
     content_type :json
@@ -11,7 +11,7 @@ class UsersController < Sinatra::Base
     body response.to_json
   end
 
-  post "/users" do
+  post '/users' do
     params = JSON.parse(request.body.read, symbolize_names: true)
 
     user = User.new(params)

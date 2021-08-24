@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 CREATE TABLE IF NOT EXISTS `posts` (
     `id` varchar(11) NOT NULL,
-    `content` varchar(1000) NOT NULL,
+    `content` TINYTEXT NOT NULL,
     `attachment` varchar(255) DEFAULT NULL,
     `created_at` TIMESTAMP DEFAULT NOW(),
     `user_id` varchar(11),
@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
 
 CREATE TABLE IF NOT EXISTS `comments` (
     `id` varchar(11) NOT NULL,
-    `content` varchar(1000) NOT NULL,
+    `content` TINYTEXT NOT NULL,
     `created_at` TIMESTAMP DEFAULT NOW(),
     `user_id` varchar(11),
     `post_id` varchar(11),
