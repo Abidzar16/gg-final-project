@@ -2,6 +2,7 @@ require 'sinatra/base'
 require './app/models/post'
 require 'json'
 
+# Containing controller for posts model
 class PostsController < Sinatra::Base
   get '/posts' do
     response = Post.fetch_all

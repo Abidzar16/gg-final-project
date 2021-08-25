@@ -2,6 +2,7 @@ require 'sinatra/base'
 require './app/models/comment'
 require 'json'
 
+# Containing controller for comments model
 class CommentsController < Sinatra::Base
   get '/comments' do
     response = Comment.fetch_all
@@ -25,13 +26,10 @@ class CommentsController < Sinatra::Base
     comment = Comment.new(params)
     response = comment.save
 
-    @code = 201 # default value
-    if response.key? :error
-      @code = 400
-    end
+    code = response.key?(:error)? 400 : 201
 
     content_type :json
-    status @code
+    status code
     body response.to_json
   end
 end

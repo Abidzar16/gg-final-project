@@ -3,6 +3,7 @@ require './app/models/post'
 require './app/models/comment'
 require 'json'
 
+# Containing controller for find trending in posts and comments
 class TrendingsController < Sinatra::Base
   get '/trendings' do
     posts = Post.fetch_all

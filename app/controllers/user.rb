@@ -2,6 +2,7 @@ require 'sinatra/base'
 require './app/models/user'
 require 'json'
 
+# Containing controller for users model
 class UsersController < Sinatra::Base
   get '/users' do
     response = User.fetch_all
