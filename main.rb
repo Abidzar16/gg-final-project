@@ -11,6 +11,6 @@ class MainApp < Sinatra::Base
   use TrendingsController
 
   get '/' do
-    "This is Main App!"
+    "This is Main Controller"
   end
 end
