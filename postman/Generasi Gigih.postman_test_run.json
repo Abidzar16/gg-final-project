@@ -1,0 +1,772 @@
+{
+	"id": "794d9cf3-6931-4e37-b4cb-4b1978a88aaf",
+	"name": "Generasi Gigih Final Project",
+	"timestamp": "2021-08-25T15:13:14.577Z",
+	"collection_id": "12885369-abd38943-5726-45c3-a0d3-daeec5089010",
+	"folder_id": 0,
+	"environment_id": "53a36e42-6175-42fd-9f68-62b5aa54e2fc",
+	"totalPass": 48,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "0f5cbcd5-686f-4904-a81b-84a08935ccec",
+			"name": "Create New User Without Bio",
+			"url": "http://localhost:4567/users",
+			"time": 307,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"status response should be 201": true,
+				"response Content-Type should application/json": true,
+				"response body should contains correct json structure": true
+			},
+			"testPassFailCounts": {
+				"status response should be 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type should application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should contains correct json structure": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				307
+			],
+			"allTests": [
+				{
+					"status response should be 201": true,
+					"response Content-Type should application/json": true,
+					"response body should contains correct json structure": true
+				}
+			]
+		},
+		{
+			"id": "5e6b9289-9b16-4574-aa96-80cf93ef5e63",
+			"name": "Create New User with Bio",
+			"url": "http://localhost:4567/users",
+			"time": 1166,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"status response should be 201": true,
+				"response Content-Type should application/json": true,
+				"response body should contains correct json structure": true
+			},
+			"testPassFailCounts": {
+				"status response should be 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type should application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should contains correct json structure": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1166
+			],
+			"allTests": [
+				{
+					"status response should be 201": true,
+					"response Content-Type should application/json": true,
+					"response body should contains correct json structure": true
+				}
+			]
+		},
+		{
+			"id": "2ca53c1b-024b-4cfe-969f-d1e889d95d36",
+			"name": "Create New User Bad Payload",
+			"url": "http://localhost:4567/users",
+			"time": 8,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"status response should be 400": true,
+				"response Content-Type should application/json": true,
+				"response body should contains correct json structure": true
+			},
+			"testPassFailCounts": {
+				"status response should be 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type should application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should contains correct json structure": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"status response should be 400": true,
+					"response Content-Type should application/json": true,
+					"response body should contains correct json structure": true
+				}
+			]
+		},
+		{
+			"id": "b58ae30c-80d7-4e64-bc07-706379719d8b",
+			"name": "Show All Users",
+			"url": "http://localhost:4567/users",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"status response should be 200": true,
+				"response Content-Type should application/json": true,
+				"response body should contains at least 1 element": true
+			},
+			"testPassFailCounts": {
+				"status response should be 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type should application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should contains at least 1 element": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"status response should be 200": true,
+					"response Content-Type should application/json": true,
+					"response body should contains at least 1 element": true
+				}
+			]
+		},
+		{
+			"id": "00bf515b-558a-4e29-812b-1e94896f1362",
+			"name": "Create New Post Without Attachment",
+			"url": "http://localhost:4567/posts",
+			"time": 553,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"status response should be 201": true,
+				"response Content-Type should application/json": true,
+				"response body should contains correct json structure": true
+			},
+			"testPassFailCounts": {
+				"status response should be 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type should application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should contains correct json structure": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				553
+			],
+			"allTests": [
+				{
+					"status response should be 201": true,
+					"response Content-Type should application/json": true,
+					"response body should contains correct json structure": true
+				}
+			]
+		},
+		{
+			"id": "b794470d-3e12-4c2f-9818-f6afb9883313",
+			"name": "Create New Post With Attachment",
+			"url": "http://localhost:4567/posts",
+			"time": 600,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"status response should be 201": true,
+				"response Content-Type should application/json": true,
+				"response body should contains correct json structure": true
+			},
+			"testPassFailCounts": {
+				"status response should be 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type should application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should contains correct json structure": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				600
+			],
+			"allTests": [
+				{
+					"status response should be 201": true,
+					"response Content-Type should application/json": true,
+					"response body should contains correct json structure": true
+				}
+			]
+		},
+		{
+			"id": "6f4ff695-8f8c-4292-b46e-fa13ea102d39",
+			"name": "Create New Post With 1000 length content",
+			"url": "http://localhost:4567/posts",
+			"time": 39,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"status response should be 400": true,
+				"response Content-Type should application/json": true,
+				"response body should contains correct json structure": true
+			},
+			"testPassFailCounts": {
+				"status response should be 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type should application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should contains correct json structure": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				39
+			],
+			"allTests": [
+				{
+					"status response should be 400": true,
+					"response Content-Type should application/json": true,
+					"response body should contains correct json structure": true
+				}
+			]
+		},
+		{
+			"id": "bf9d5272-25a5-4c41-bdf1-e5e73c41e671",
+			"name": "Create New Post Bad Payload",
+			"url": "http://localhost:4567/posts",
+			"time": 8,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"status response should be 400": true,
+				"response Content-Type should application/json": true,
+				"response body should contains correct json structure": true
+			},
+			"testPassFailCounts": {
+				"status response should be 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type should application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should contains correct json structure": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"status response should be 400": true,
+					"response Content-Type should application/json": true,
+					"response body should contains correct json structure": true
+				}
+			]
+		},
+		{
+			"id": "4791319e-85ee-47bc-b486-a3bde06d09a3",
+			"name": "Show All Posts",
+			"url": "http://localhost:4567/posts",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"status response should be 200": true,
+				"response Content-Type should application/json": true,
+				"response body should contains at least 1 element": true
+			},
+			"testPassFailCounts": {
+				"status response should be 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type should application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should contains at least 1 element": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"status response should be 200": true,
+					"response Content-Type should application/json": true,
+					"response body should contains at least 1 element": true
+				}
+			]
+		},
+		{
+			"id": "6dbb93e5-4cf1-4cf9-bfa5-19d89383abc6",
+			"name": "Show Posts based on hashtag",
+			"url": "http://localhost:4567/posts/hashtag",
+			"time": 10,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"status response should be 200": true,
+				"response Content-Type should application/json": true,
+				"response body should contains at least 1 element": true
+			},
+			"testPassFailCounts": {
+				"status response should be 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type should application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should contains at least 1 element": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"status response should be 200": true,
+					"response Content-Type should application/json": true,
+					"response body should contains at least 1 element": true
+				}
+			]
+		},
+		{
+			"id": "83b5c1f6-cc8f-4919-b0cf-983e98040eb6",
+			"name": "Create New Comment 1",
+			"url": "http://localhost:4567/comments",
+			"time": 739,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"status response should be 201": true,
+				"response Content-Type should application/json": true,
+				"response body should contains correct json structure": true
+			},
+			"testPassFailCounts": {
+				"status response should be 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type should application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should contains correct json structure": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				739
+			],
+			"allTests": [
+				{
+					"status response should be 201": true,
+					"response Content-Type should application/json": true,
+					"response body should contains correct json structure": true
+				}
+			]
+		},
+		{
+			"id": "62fb8501-04fd-4ebc-b8bd-0e3c9ba40723",
+			"name": "Create New Comment 2",
+			"url": "http://localhost:4567/comments",
+			"time": 996,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"status response should be 201": true,
+				"response Content-Type should application/json": true,
+				"response body should contains correct json structure": true
+			},
+			"testPassFailCounts": {
+				"status response should be 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type should application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should contains correct json structure": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				996
+			],
+			"allTests": [
+				{
+					"status response should be 201": true,
+					"response Content-Type should application/json": true,
+					"response body should contains correct json structure": true
+				}
+			]
+		},
+		{
+			"id": "becdac56-a3ad-4e23-84bc-c808736c72bb",
+			"name": "Create New Comment Bad Payload",
+			"url": "http://localhost:4567/comments",
+			"time": 11,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"status response should be 400": true,
+				"response Content-Type should application/json": true,
+				"response body should contains correct json structure": true
+			},
+			"testPassFailCounts": {
+				"status response should be 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type should application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should contains correct json structure": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"status response should be 400": true,
+					"response Content-Type should application/json": true,
+					"response body should contains correct json structure": true
+				}
+			]
+		},
+		{
+			"id": "9daacae7-7f87-41f0-b911-5980c67e3bfb",
+			"name": "Show All Comments",
+			"url": "http://localhost:4567/comments",
+			"time": 10,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"status response should be 200": true,
+				"response Content-Type should application/json": true,
+				"response body should contains at least 1 element": true
+			},
+			"testPassFailCounts": {
+				"status response should be 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type should application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should contains at least 1 element": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"status response should be 200": true,
+					"response Content-Type should application/json": true,
+					"response body should contains at least 1 element": true
+				}
+			]
+		},
+		{
+			"id": "c09bb3ce-e90c-41dd-9aad-2cf750d18be3",
+			"name": "Show Comments based on hashtag",
+			"url": "http://localhost:4567/comments/hashtag2",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"status response should be 200": true,
+				"response Content-Type should application/json": true,
+				"response body should contains at least 1 element": true
+			},
+			"testPassFailCounts": {
+				"status response should be 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type should application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should contains at least 1 element": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"status response should be 200": true,
+					"response Content-Type should application/json": true,
+					"response body should contains at least 1 element": true
+				}
+			]
+		},
+		{
+			"id": "607e88a0-3b6d-40d2-bc74-3c060299f3b6",
+			"name": "Create Dummy New Post 1",
+			"url": "http://localhost:4567/posts",
+			"time": 1293,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				1293
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "eb6d7214-9abf-492f-9dc8-6d52c6a47c9f",
+			"name": "Create Dummy New Post 2",
+			"url": "http://localhost:4567/posts",
+			"time": 523,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				523
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "b715cda8-7121-4f10-830c-a2150f5916a4",
+			"name": "Create Dummy New Post 3",
+			"url": "http://localhost:4567/posts",
+			"time": 666,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				666
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "b7ab3b45-1121-450d-92a9-cdef2fb44d13",
+			"name": "Show trending hashtag last 24 hours",
+			"url": "http://localhost:4567/trendings",
+			"time": 16,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"status response should be 200": true,
+				"response Content-Type should application/json": true,
+				"response body should contains exact 5 top hashtag": true
+			},
+			"testPassFailCounts": {
+				"status response should be 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response Content-Type should application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response body should contains exact 5 top hashtag": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				16
+			],
+			"allTests": [
+				{
+					"status response should be 200": true,
+					"response Content-Type should application/json": true,
+					"response body should contains exact 5 top hashtag": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 6971,
+	"collection": {
+		"requests": [
+			{
+				"id": "0f5cbcd5-686f-4904-a81b-84a08935ccec",
+				"method": "POST"
+			},
+			{
+				"id": "5e6b9289-9b16-4574-aa96-80cf93ef5e63",
+				"method": "POST"
+			},
+			{
+				"id": "2ca53c1b-024b-4cfe-969f-d1e889d95d36",
+				"method": "POST"
+			},
+			{
+				"id": "b58ae30c-80d7-4e64-bc07-706379719d8b",
+				"method": "GET"
+			},
+			{
+				"id": "00bf515b-558a-4e29-812b-1e94896f1362",
+				"method": "POST"
+			},
+			{
+				"id": "b794470d-3e12-4c2f-9818-f6afb9883313",
+				"method": "POST"
+			},
+			{
+				"id": "6f4ff695-8f8c-4292-b46e-fa13ea102d39",
+				"method": "POST"
+			},
+			{
+				"id": "bf9d5272-25a5-4c41-bdf1-e5e73c41e671",
+				"method": "POST"
+			},
+			{
+				"id": "4791319e-85ee-47bc-b486-a3bde06d09a3",
+				"method": "GET"
+			},
+			{
+				"id": "6dbb93e5-4cf1-4cf9-bfa5-19d89383abc6",
+				"method": "GET"
+			},
+			{
+				"id": "83b5c1f6-cc8f-4919-b0cf-983e98040eb6",
+				"method": "POST"
+			},
+			{
+				"id": "62fb8501-04fd-4ebc-b8bd-0e3c9ba40723",
+				"method": "POST"
+			},
+			{
+				"id": "becdac56-a3ad-4e23-84bc-c808736c72bb",
+				"method": "POST"
+			},
+			{
+				"id": "9daacae7-7f87-41f0-b911-5980c67e3bfb",
+				"method": "GET"
+			},
+			{
+				"id": "c09bb3ce-e90c-41dd-9aad-2cf750d18be3",
+				"method": "GET"
+			},
+			{
+				"id": "607e88a0-3b6d-40d2-bc74-3c060299f3b6",
+				"method": "POST"
+			},
+			{
+				"id": "eb6d7214-9abf-492f-9dc8-6d52c6a47c9f",
+				"method": "POST"
+			},
+			{
+				"id": "b715cda8-7121-4f10-830c-a2150f5916a4",
+				"method": "POST"
+			},
+			{
+				"id": "b7ab3b45-1121-450d-92a9-cdef2fb44d13",
+				"method": "GET"
+			}
+		]
+	}
+}
