@@ -4,7 +4,7 @@
 
 ## Problem description
 
-This repository containing server-side only social media application that can be used to share information with other people inside a spesific company. therefore, the usage of existing public social networks is prohibited.
+This repository containing server-side only social media application that can be used to share information with other people inside a spesific company. therefore, the usage of existing public social networks is prohibited. This microservice is primarily created using Ruby as programming langauge and Sinatra as Backend Framework
 
 ---
 
