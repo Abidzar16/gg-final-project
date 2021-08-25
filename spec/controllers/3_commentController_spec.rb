@@ -11,7 +11,7 @@ describe 'CommentsController' do
     CommentsController.new
   end
 
-  it "get /comments" do
+  it 'get /comments' do
     get '/comments'
     expect(last_response.status).to eq 200
   end
@@ -26,11 +26,18 @@ describe 'CommentsController' do
     dummy_post.save
   end
 
-  it "post /comments" do
-    headers = { "ACCEPT" => "application/json" }
-    params = { "content":"Dummy Comment", "post_id": @post_id_dummy, "user_id": @user_id_dummy }
+  it 'post /comments with good payload' do
+    headers = { "ACCEPT" => 'application/json' }
+    params = { "content": 'Dummy Comment', "post_id": @post_id_dummy, "user_id": @user_id_dummy }
     post '/comments', params.to_json, :headers => headers
     expect(last_response.status).to eq 201
+  end
+
+  it 'post /comments with bad payload' do
+    headers = { "ACCEPT" => "application/json" }
+    params = { "content": nil, "post_id": nil, "user_id": nil }
+    post '/comments', params.to_json, :headers => headers
+    expect(last_response.status).to eq 400
   end
 
   before do
@@ -46,7 +53,7 @@ describe 'CommentsController' do
     dummy_comment.save
   end
 
-  it "get /comments/:hashtag" do
+  it 'get /comments/:hashtag' do
     get '/comments/test'
     expect(last_response.status).to eq 200
   end

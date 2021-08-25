@@ -10,7 +10,7 @@ describe 'PostsController' do
     PostsController.new
   end
 
-  it "get /posts" do
+  it 'get /posts' do
     get '/posts'
     expect(last_response.status).to eq 200
   end
@@ -20,11 +20,18 @@ describe 'PostsController' do
     dummy_user.save
   end
 
-  it "post /posts" do
-    headers = { "ACCEPT" => "application/json" }
-    params = { "content":"Abid", "attachment":"test.mp4", "user_id":123 }
+  it 'post /posts with good payload' do
+    headers = { 'ACCEPT' => 'application/json' }
+    params = { "content": 'Abid', "attachment": 'test.mp4', "user_id": 123 }
     post '/posts', params.to_json, :headers => headers
     expect(last_response.status).to eq 201
+  end
+
+  it 'post /posts with bad payload' do
+    headers = { "ACCEPT" => "application/json" }
+    params = { "content": nil, "user_id": nil }
+    post '/posts', params.to_json, :headers => headers
+    expect(last_response.status).to eq 400
   end
 
   before do
@@ -37,7 +44,7 @@ describe 'PostsController' do
     dummy_post.save
   end
 
-  it "get /posts/:hashtag" do
+  it 'get /posts/:hashtag' do
     get '/posts/test'
     expect(last_response.status).to eq 200
   end
