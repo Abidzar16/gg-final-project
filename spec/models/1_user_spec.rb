@@ -2,7 +2,7 @@ require './app/models/user'
 require 'mysql2'
 require 'dotenv/load'
 require 'nanoid'
-require "./db_connection"
+require './config/db_client'
 
 RSpec.describe User do
   describe '#valid?' do
@@ -48,13 +48,7 @@ RSpec.describe User do
       mysql_client.query('select * from users order by created_at desc limit 1;').first
     end
     let(:mysql_client) do
-      Mysql2::Client.new(
-        host: ENV['DATABASE_HOST'],
-        username: ENV['DATABASE_USERNAME'],
-        password: ENV['DATABASE_PASSWORD'],
-        database: ENV['DATABASE_NAME'],
-        port: ENV['DATABASE_PORT']
-      )
+      database_client
     end
 
     after do

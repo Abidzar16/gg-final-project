@@ -1,6 +1,5 @@
-require 'dotenv/load'
 require 'mysql2'
-require './db_connection'
+require './config/db_client'
 
 class Comment
   attr_accessor :id, :content, :user_id, :post_id

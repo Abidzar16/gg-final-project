@@ -1,6 +1,5 @@
-require 'dotenv/load'
 require 'mysql2'
-require './db_connection'
+require './config/db_client'
 require 'json'
 
 class Post

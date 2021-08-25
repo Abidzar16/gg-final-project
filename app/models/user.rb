@@ -1,8 +1,7 @@
-require 'dotenv/load'
 require 'mysql2'
 require 'nanoid'
 require 'json'
-require './db_connection'
+require './config/db_client'
 
 class User
   attr_accessor :id, :name, :email, :bio
